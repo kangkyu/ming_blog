@@ -6,3 +6,11 @@
 </p>
 
 <p><%= link_to 'back', articles_path %></p>
+
+
+<p>write something</p>
+
+<% @article.comments.each do |comment| %>
+  <%= comment.title %>
+  <%= simple_format comment.text %>
+<% end %>
