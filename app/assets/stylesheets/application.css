@@ -15,27 +15,38 @@
  *= require_self
  */
 
+body {
+  margin-top: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+
 h1 {
   color: Purple;
+  padding-bottom: 20px;
 }
 
-#test001 {
+.btn {
   text-decoration: none;
-
+  margin-bottom: 20px;
 }
 
-a:link {
-    text-decoration: none;
+.button-justified {
+  text-align: justify;
 }
 
-a:visited {
-    text-decoration: none;
+.button-justified a {
+  display: inline-block;
+  position: relative;
 }
 
-a:hover {
-    text-decoration: none;
+.button-justified:before{
+  content: '';
+  display: block;
+  width: 100%;
 }
 
-a:active {
-    text-decoration: none;
+.button-justified:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
 }

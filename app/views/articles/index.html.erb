@@ -1,11 +1,10 @@
-<h1>Hello Ming!</h1>
+<%= link_to 'add new article', new_article_path, class: "btn btn-default" %>
 
-<div class="btn btn-link"><%= link_to 'add new article', new_article_path %></div>
-<ul>
+<div class: "list-group">
   <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article_path(article) %><br>
-      <%= article.body %>
-    </li>
+  <%= link_to article, class: "list-group-item" do %>
+      <h4 class="list-group-item-heading"><%= truncate(article.title, separator: ' ') %></h4><span class="badge"><%= article.comments.count %></span>
+      <p class="list-group-item-text"><%= truncate(article.body, length: 51, separator: ' ', omission: '... (continued)') %></p>
   <% end %>
-</ul>
+<% end %>
+</div>

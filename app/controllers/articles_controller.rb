@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       redirect_to @article
+      flash[:notice] = "article added"
     else
       flash[:error] = "what are you doing? you need a title."
       render :new
@@ -30,6 +31,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     if @article.update(article_params)
       redirect_to @article
+      flash[:notice] = "article updated"
     else
       flash[:error] = "what are you doing? you need a title."
       render :edit

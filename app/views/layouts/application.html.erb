@@ -5,12 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
 </head>
 <body>
 
 <div class="container">
-  <p id="error"><%= flash[:error] %></p>
-  <p id="notice"><%= flash[:notice] %></p>
+  <h1 class="text-center">Hello Ming!</h1>
+
+  <%= content_tag(:div, flash[:notice], class: "alert alert-success", id: "notice") if flash[:notice] %>
+  <%= content_tag(:div, flash[:error], class: "alert alert-warning", id: "error") if flash[:error] %>
 
   <%= yield %>
 </div>
