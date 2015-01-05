@@ -17,3 +17,14 @@
   </li>
   <% end %>
 </ul>
+<%= form_for [@article, @comment] do |f| %>
+  <div class="form-group">
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :text, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-default" %>
+  </div>
+<% end %>
