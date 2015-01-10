@@ -10,14 +10,9 @@
 </head>
 <body>
 
-<div class="container">
-  <h1 class="text-center">Hello Ming!</h1>
-
-  <%= content_tag(:div, flash[:notice], class: "alert alert-success", id: "notice") if flash[:notice] %>
-  <%= content_tag(:div, flash[:error], class: "alert alert-warning", id: "error") if flash[:error] %>
-
+  <%= render 'layouts/header' %>
   <%= yield %>
-</div>
+  <%= render 'layouts/footer' %>
 
 </body>
 </html>
