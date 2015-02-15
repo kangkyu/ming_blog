@@ -1,2 +1,5 @@
-
-</div>
+<h2>
+  <% if current_user %>
+    <%= link_to "Log Out", session_path, method: :delete, class: 'btn btn-info' %>
+  <% end %>
+</h2>
