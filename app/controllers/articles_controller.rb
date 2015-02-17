@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
       redirect_to @article
       flash[:notice] = "article added"
     else
-      flash[:error] = "what are you doing? you need a title."
+      flash.now[:error] = "what are you doing? you need a title."
       render :new
     end
   end

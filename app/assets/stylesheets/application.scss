@@ -1,0 +1,39 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body {
+  margin-top: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  color: Purple;
+  padding-bottom: 20px;
+}
+
+.btn {
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.button-justified {
+  text-align: justify;
+}
+
+.button-justified a {
+  display: inline-block;
+  position: relative;
+}
+
+.button-justified:before{
+  content: '';
+  display: block;
+  width: 100%;
+}
+
+.button-justified:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}

@@ -1,5 +1,14 @@
 
   <h1 class="text-center">Hello Ming!</h1>
 
-  <%= content_tag(:div, flash[:notice], class: "alert alert-success", id: "notice") if flash[:notice] %>
-  <%= content_tag(:div, flash[:error], class: "alert alert-warning", id: "error") if flash[:error] %>
+<% if flash %>
+  <% flash.keys.each do |key| %>
+    <div class="alert alert-<%= (key=="notice" ? "success" : key=="error" ? "warning" : default) %> alert-dismissible" role="alert" id="<%= key %>">
+      <%= content_tag(:button, class: "close", type: "button", "data-dismiss"=> "alert") do %>
+      <%= content_tag(:span, "×", "aria-hidden"=> "true") +
+        content_tag(:span, "Close", class: "sr-only") %>
+      <% end %>
+      <%= flash[key] %>
+    </div>
+  <% end %>
+<% end %>
