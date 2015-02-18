@@ -1,6 +1,6 @@
 <%= link_to 'add new article', new_article_path, class: "btn btn-default" %>
 
-<div class: "list-group">
+<div class="list-group">
   <% @articles.each do |article| %>
   <%= link_to article, class: "list-group-item" do %>
       <h4 class="list-group-item-heading"><%= truncate(article.title, separator: ' ') %></h4><span class="badge"><%= article.comments.count %></span>

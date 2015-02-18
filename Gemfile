@@ -38,6 +38,17 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+group :test do
+  gem 'minitest-rails-capybara'
+  gem 'minitest-reporters'
+end
+
+# group :test do
+#   gem 'minitest', '~> 5.5.1'
+#   gem 'capybara', '~> 2.4.4'
+#   gem 'turn', '~> 0.9.7'
+# end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
