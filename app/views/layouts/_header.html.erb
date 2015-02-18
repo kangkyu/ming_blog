@@ -1,9 +1,12 @@
 
 <h1 class="text-center">Ming Rocks!</h1>
+<% unless current_user %>
+  <%= link_to "login", login_path  %>
+<% end %>
 
 <% if flash %>
   <% flash.keys.each do |key| %>
-    <div class="alert alert-<%= (key=="notice" ? "success" : key=="error" ? "warning" : default) %> alert-dismissible" role="alert" id="<%= key %>">
+    <div class="alert alert-<%= (key=="notice" ? "success" : key=="error" ? "warning" : "default") %> alert-dismissible" role="alert" id="<%= key %>">
       <%= content_tag(:button, class: "close", type: "button", "data-dismiss"=> "alert") do %>
       <%= content_tag(:span, "×", "aria-hidden"=> "true") +
         content_tag(:span, "Close", class: "sr-only") %>
