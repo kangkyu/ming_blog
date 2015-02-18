@@ -4,7 +4,7 @@
   <% @articles.each do |article| %>
   <%= link_to article, class: "list-group-item" do %>
       <h4 class="list-group-item-heading"><%= truncate(article.title, separator: ' ') %></h4><span class="badge"><%= article.comments.count %></span>
-      <p class="list-group-item-text"><%= truncate(article.body, length: 51, separator: ' ', omission: '... (continued)') %></p>
+      <p class="list-group-item-text"><%= truncate(article.body, length: 51, separator: ' ', omission: ' ... (continued)') %></p>
   <% end %>
 <% end %>
 </div>
