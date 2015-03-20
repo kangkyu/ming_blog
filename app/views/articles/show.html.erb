@@ -8,7 +8,7 @@
   <%= link_to 'delete', article_path(@article), method: :delete, data: { confirm: "are you sure?" }, class: "btn btn-danger" %>
 </div>
 
-<h4><%= link_to pluralize(@article.comments.count, 'comment'), "#" %></h4>
+<h4><%= link_to pluralize(@article.comments.count, 'comment'), "#", id: "comments-link" %></h4>
 <p></p>
 
 <section id="comments-section">
