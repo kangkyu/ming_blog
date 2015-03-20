@@ -15,7 +15,7 @@
 <ul id="comment">
   <%= render @article.comments %>
 </ul>
-<%= form_for [@article, @article.comments.new] do |f| %>
+<%= form_for [@article, @article.comments.new], remote: true do |f| %>
   <div class="form-group">
     <%= f.text_field :title, class: "form-control" %>
   </div>

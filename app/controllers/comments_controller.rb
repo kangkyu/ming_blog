@@ -1,13 +1,13 @@
 class CommentsController < ApplicationController
   
-  def index
-  end
-
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.new(comment_params)
     if @comment.save
-      redirect_to article_url(@article)
+      respond_to do |format|
+        format.html {redirect_to @article}
+        format.js # render comments/create.js.erb
+      end
     else
       render :back
     end
