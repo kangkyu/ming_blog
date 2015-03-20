@@ -1,23 +1,21 @@
 <h3><%= @article.title %></h3>
 <p><%= simple_format @article.body %></p>
 <p><br></p>
+
 <div class="button-justified">
   <%= link_to 'edit', edit_article_path, class: "btn btn-default" %>
   <%= link_to 'back', articles_path, class: "btn btn-default" %>
   <%= link_to 'delete', article_path(@article), method: :delete, data: { confirm: "are you sure?" }, class: "btn btn-danger" %>
 </div>
 
-<h4><%= pluralize(@article.comments.count, 'comment') %></h4>
+<h4><%= link_to pluralize(@article.comments.count, 'comment'), "#" %></h4>
 <p></p>
-<ul>
-  <% @article.comments.each do |comment| %>
-  <li>
-    <%= comment.title %>
-    <%= simple_format comment.text %>
-  </li>
-  <% end %>
+
+<section id="comments-section">
+<ul id="comment">
+  <%= render @article.comments %>
 </ul>
-<%= form_for [@article, @comment] do |f| %>
+<%= form_for [@article, @article.comments.new] do |f| %>
   <div class="form-group">
     <%= f.text_field :title, class: "form-control" %>
   </div>
@@ -25,6 +23,7 @@
     <%= f.text_area :text, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.submit class: "btn btn-default" %>
+    <%= f.submit 'Post Comment', class: "btn btn-default" %>
   </div>
 <% end %>
+</section>
