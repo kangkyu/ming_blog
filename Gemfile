@@ -38,6 +38,7 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem "minitest-rails"
 group :test do
   gem 'minitest-rails-capybara'
   gem 'minitest-reporters'
