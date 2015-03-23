@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   
   root 'articles#index'
 
-  get 'sessions/new'
   resource :session
   
   resources :users
