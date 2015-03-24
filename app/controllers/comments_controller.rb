@@ -2,14 +2,14 @@ class CommentsController < ApplicationController
   
   def create
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.new(comment_params)
+    @comment = @article.comments.build(comment_params)
     if @comment.save
       respond_to do |format|
         format.html {redirect_to @article}
         format.js # render comments/create.js.erb
       end
     else
-      render :back
+      render 'articles/show'
     end
   end
 
