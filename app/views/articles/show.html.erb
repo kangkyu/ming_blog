@@ -2,10 +2,12 @@
 <p><%= simple_format @article.body %></p>
 <p><br></p>
 
+<% if logged_in? %>
 <div class="button-justified">
   <%= link_to 'edit', edit_article_path, class: "btn btn-default" %>
   <%= link_to 'delete', article_path(@article), method: :delete, data: { confirm: "are you sure?" }, class: "btn btn-danger" %>
 </div>
+<% end %>
 
 <h4><%= link_to pluralize(@article.comments.count, 'comment'), "#", id: "comments-link" %></h4>
 <p></p>
@@ -14,6 +16,7 @@
 <ul id="comment">
   <%= render @article.comments %>
 </ul>
+<% if logged_in? %>
 <%= form_for [@article, @article.comments.new], remote: true do |f| %>
   <div class="form-group">
     <%= f.text_field :title, class: "form-control" %>
@@ -24,5 +27,6 @@
   <div class="form-group">
     <%= f.submit 'Post Comment', class: "btn btn-default" %>
   </div>
+<% end %>
 <% end %>
 </section>
