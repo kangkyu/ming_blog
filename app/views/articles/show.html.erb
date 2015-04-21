@@ -13,9 +13,13 @@
 <p></p>
 
 <section id="comments-section">
-<ul id="comment">
+
+<div class="row">
+<div id="comment" class="panel panel-default col-md-6">
   <%= render @article.comments %>
-</ul>
+</div>
+</div>
+
 <% if logged_in? %>
 <%= form_for [@article, @article.comments.new], remote: true do |f| %>
   <div class="form-group">
@@ -29,4 +33,5 @@
   </div>
 <% end %>
 <% end %>
+
 </section>

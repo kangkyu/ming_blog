@@ -1,6 +1,7 @@
 
-<li>
-  <%= comment.title %>
-  <span><%= time_ago_in_words(comment.created_at) %> ago</span>
-  <p><%= simple_format comment.text %></p>
-</li>
+<div class="panel-heading row">
+  <div class="col-xs-6"><%= comment.title %></div>
+  <small class="col-xs-6 text-right silent"><%= time_ago_in_words(comment.created_at) %> ago</small>
+</div>
+<div class="panel-body">
+  <p><%= simple_format comment.text %></p></div>
