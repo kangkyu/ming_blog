@@ -1,10 +1,14 @@
-<%= link_to 'add new article', new_article_path, class: "btn btn-default" %>
+<% if logged_in? %>
+  <%= link_to 'add new article', new_article_path, class: "btn btn-default" %>
+
+<% end %>
 
 <div class="list-group">
-  <% @articles.each do |article| %>
+<% @articles.each do |article| %>
   <%= link_to article, class: "list-group-item" do %>
-      <h4 class="list-group-item-heading"><%= truncate(article.title, separator: ' ') %></h4><span class="badge"><%= article.comments.count %></span>
-      <p class="list-group-item-text"><%= truncate(article.body, length: 51, separator: ' ', omission: ' ... (continued)') %></p>
+    <h4 class="list-group-item-heading"><%= truncate(article.title, separator: ' ') %></h4><span class="badge"><%= article.comments.count %></span>
+    <p class="list-group-item-text"><%= truncate(article.body, length: 51, separator: ' ', omission: ' ... (continued)') %></p>
+
   <% end %>
 <% end %>
 </div>

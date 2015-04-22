@@ -1,37 +1,38 @@
 <h3><%= @article.title %></h3>
-<p><%= simple_format @article.body %></p>
-<p><br></p>
+<p><%= simple_format @article.body %></p><br>
 
 <% if logged_in? %>
-<div class="button-justified">
-  <%= link_to 'edit', edit_article_path, class: "btn btn-default" %>
-  <%= link_to 'delete', article_path(@article), method: :delete, data: { confirm: "are you sure?" }, class: "btn btn-danger" %>
-</div>
+  <div class="button-justified">
+    <%= link_to 'edit', edit_article_path, class: "btn btn-default" %>
+    <%= link_to 'delete', article_path(@article), method: :delete, data: { confirm: "are you sure?" }, class: "btn btn-danger" %>
+  </div>
+
 <% end %>
 
-<h4><%= link_to pluralize(@article.comments.count, 'comment'), "#", id: "comments-link" %></h4>
-<p></p>
-
-<section id="comments-section">
+<h4>Show <%= link_to pluralize(@article.comments.count, 'comment'), "#", id: "comments-link" %></h4><br>
 
 <div class="row">
-<div id="comment" class="panel panel-default col-md-6">
-  <%= render @article.comments %>
-</div>
-</div>
-
-<% if logged_in? %>
-<%= form_for [@article, @article.comments.new], remote: true do |f| %>
-  <div class="form-group">
-    <%= f.text_field :title, class: "form-control" %>
+<section id="comments-section">
+  <div id="comment" class="panel panel-default col-sm-6">
+    <%= render @article.comments %>
   </div>
-  <div class="form-group">
-    <%= f.text_area :text, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.submit 'Post Comment', class: "btn btn-default" %>
-  </div>
-<% end %>
-<% end %>
 
 </section>
+
+<% if logged_in? %>
+  <div class="col-sm-6">
+    <%= form_for [@article, @article.comments.new], remote: true do |f| %>
+      <div class="form-group">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_area :text, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit 'Post Comment', class: "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>
+</div>

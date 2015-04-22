@@ -1,11 +1,16 @@
 <h1 class="text-center">Ming Rocks!</h1>
 <div class="button-justified">
   <%= link_to 'all articles', articles_path, class: "btn btn-default" %>
+  <div class="btn-group">
+
   <% if logged_in? %>
-    <%= link_to "Welcome, #{current_user.name.capitalize}", current_user, class: "btn btn-link" %>
+    <%= link_to "Welcome, #{current_user.name.titlecase.split[0]}", current_user, class: "btn btn-link" %>
     <%= link_to "Log Out", session_path, method: :delete, class: "btn btn-link" %>
+
   <% else %>
     <%= link_to "Log In", login_path, class: "btn btn-link" %>
     <%= link_to "Sign Up", signup_path, class: "btn btn-link"  %>
+
   <% end %>
+  </div>
 </div>
