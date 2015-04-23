@@ -26,6 +26,11 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :development do
+  gem 'guard' # NOTE: this is necessary in newer versions
+  gem 'guard-minitest'
+end
+# https://github.com/guard/guard-minitest
 
 
 
