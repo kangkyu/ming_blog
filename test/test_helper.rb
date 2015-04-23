@@ -23,9 +23,16 @@ class ActiveSupport::TestCase
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
-  # fixtures :all
+  fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def log_in(user)
+    visit login_path
+    fill_in 'Name', with: user.name
+    fill_in 'Password', with: "password"
+    # default password set as "password" at users.yml
+    click_on "Submit"
+  end
 end
 
 # class CapybaraTestCase < ActionDispatch::IntegrationTest

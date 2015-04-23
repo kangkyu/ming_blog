@@ -1,0 +1,13 @@
+one:
+  name: "Jim Higgins"
+  email: "jimmy@example.com"
+  user_name: "Mr Higgins"
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+
+# http://brandonhilkert.com/blog/managing-login-passwords-for-capybara-with-minitest-and-rails-fixtures/
+
+two:
+  name: "Ming Wu"
+  email: "ming@example.com"
+  user_name: "Mr Great"
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>

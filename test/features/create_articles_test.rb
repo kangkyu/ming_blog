@@ -1,15 +1,13 @@
 require 'test_helper'
 
 class CreateArticlesTest < Capybara::Rails::TestCase
-  test "can create a new article" do
-    user = User.create!(name: "ming", email: "ming@example.com", user_name: "Mr Great", password: "1111", password_confirmation: "1111")
-    visit login_path
-    assert_equal login_path, current_path
 
-    fill_in 'Name', with: "ming"
-    fill_in 'Password', with: "1111"
-    click_button "Submit"
-    assert_text "Login successful"
+  def setup
+    user = users(:one)
+    log_in(user)
+  end
+
+  test "can create a new article" do
 
     visit articles_path
     click_link "add new article"
