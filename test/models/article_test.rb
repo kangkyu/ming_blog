@@ -1,16 +1,22 @@
 require 'test_helper'
 
-describe "Article" do
-  before do
+class ArticleTest < ActiveSupport::TestCase
+
+  def test_should_not_save_without_title
+    @article = Article.new
+    assert_not @article.save
+  end
+
+  def setup
     @article = Article.new(title: "Write Minitest-BDD post",
                            body: "Show Rails and Capybara example")
   end
 
-  it "has a title attribute" do
-    @article.must_respond_to :title
+  test "has a title attribute" do
+    assert_respond_to @article, :title
   end
 
-  it "has a body attribute" do
-    @article.must_respond_to :body
+  test "has a body attribute" do
+    assert_respond_to @article, :body
   end
 end

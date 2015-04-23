@@ -1,24 +1,24 @@
 require 'test_helper'
 
-describe 'ArticlesController' do
-  describe "GET :index" do
-    before do
-      get :index
-    end
+class ArticlesControllerTest < ActionController::TestCase
+  
+  # test "GET :index" do
+  def setup
+    get :index
+  end
 
-    it "renders articles/index" do
-      must_render_template 'articles/index'
-    end
+  test "renders articles/index" do
+    assert_template 'articles/index'
+  end
 
-    it "responds with success" do
-      must_respond_with :success
-    end
+  test "responds with success" do
+    assert_response :success
+  end
 
-    it "fetches and assigns a list of articles" do
-      assigns(:articles).wont_be_nil
+  test "fetches and assigns a list of articles" do
+    assert_not_nil assigns(:articles)
 
-      article_ids = assigns(:articles).map(&:id).sort
-      article_ids.must_equal Article.pluck(:id).sort
-    end
+    article_ids = assigns(:articles).map(&:id).sort
+    assert_equal article_ids, Article.pluck(:id).sort
   end
 end

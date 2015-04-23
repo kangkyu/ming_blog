@@ -16,6 +16,7 @@ Minitest::Reporters.use!(
   Minitest.backtrace_filter
 )
 
+# Any method defined within a class inherited from Minitest::Test (which is the superclass of ActiveSupport::TestCase)
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 
