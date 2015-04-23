@@ -11,8 +11,6 @@ class ShowArticlesTest < Capybara::Rails::TestCase
   end
 
   test "displays a list of articles" do
-    Article.create!(title: "Write Test", body: "before you go further")
-    Article.create!(title: "Minitest", body: "this time I use minitest and capybara")
 
     visit root_path
 
@@ -23,8 +21,6 @@ class ShowArticlesTest < Capybara::Rails::TestCase
   end
 
   test "displays details of each article" do
-    Article.create!(title: "Write Test", body: "before you go further")
-    Article.create!(title: "Minitest", body: "this time I use minitest and capybara")
 
     Article.find_each do |article|
 

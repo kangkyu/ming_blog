@@ -1,0 +1,7 @@
+one:
+  title: "Write Test"
+  body: "before you go further"
+
+two:
+  title: "Minitest"
+  body: "this time I use minitest and capybara"
