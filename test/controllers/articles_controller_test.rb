@@ -1,7 +1,7 @@
 require 'test_helper'
 
-module ArticlesControllerTest
-  class GetIndexText < ActionController::TestCase
+class ArticlesControllerTest < ActionController::TestCase
+  class GetIndexText < ArticlesControllerTest
 
     setup do
       get :index
@@ -23,7 +23,7 @@ module ArticlesControllerTest
     end
   end
 
-  class GetShowTest < ActionController::TestCase
+  class GetShowTest < ArticlesControllerTest
 
     def setup
       get :show, id: articles(:one).id
@@ -38,7 +38,7 @@ module ArticlesControllerTest
     end
   end
 
-  class WithoutLogin < ActionController::TestCase
+  class WithoutLogin < ArticlesControllerTest
 
     def setup
       session[:user_id] = nil
@@ -75,7 +75,7 @@ module ArticlesControllerTest
     end
   end
 
-  class WithLogin < ActionController::TestCase
+  class WithLogin < ArticlesControllerTest
 
     def setup
       session[:user_id] = users(:one).id
