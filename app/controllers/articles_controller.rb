@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :require_login, except: [:index, :show]
 
   def index
-    @articles = Article.all
+    @articles = Article.order_by_updated_at
   end
 
   def show
