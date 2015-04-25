@@ -1,4 +1,7 @@
-<%= current_user.name %>
-<%= current_user.user_name %>
-<%= current_user.email %>
-<%= current_user.password_digest %>
+<div class="thumbnail">
+  <div class="caption">
+    <h3><%= current_user.name %></h3>
+    <p><%= current_user.user_name %><br>
+    <%= current_user.email %><br></p>
+  </div>
+</div>
