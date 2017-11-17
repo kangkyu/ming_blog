@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.10'
+ruby '2.3.1'
 
 
 gem "minitest-rails"
@@ -35,7 +35,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.16'
+gem 'rails', '~> 4.2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
