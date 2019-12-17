@@ -26,7 +26,7 @@ class ArticlesControllerTest < ActionController::TestCase
   class GetShowTest < ArticlesControllerTest
 
     def setup
-      get :show, id: articles(:one).id
+      get :show, params: { id: articles(:one).id }
     end
 
     test "get show responds with success" do
@@ -53,24 +53,24 @@ class ArticlesControllerTest < ActionController::TestCase
       get :new
     end
     def test_get_edit_action
-      get :edit, id: articles(:one).id
+      get :edit, params: { id: articles(:one).id }
     end
 
     test "delete destroy action" do
       assert_no_difference 'Article.count' do
-        delete :destroy, id: articles(:one).id
+        delete :destroy, params: { id: articles(:one).id }
       end
     end
 
     test "patch update action" do
       assert_no_difference 'Article.count' do
-        patch :update, id: articles(:one).id, article: @new_article_hash
+        patch :update, params: { id: articles(:one).id, article: @new_article_hash }
       end
     end
 
     test "post create action" do
       assert_no_difference "Article.count" do
-        post :create, article: @new_article_hash
+        post :create, params: { article: @new_article_hash }
       end
     end
   end
@@ -84,7 +84,7 @@ class ArticlesControllerTest < ActionController::TestCase
 
     test "delete destroy action" do
       assert_difference 'Article.count', -1 do
-        delete :destroy, id: articles(:one).id
+        delete :destroy, params: { id: articles(:one).id }
       end
       assert_response :redirect
       assert_equal "article deleted", flash[:notice]
@@ -92,7 +92,7 @@ class ArticlesControllerTest < ActionController::TestCase
 
     test "patch update action" do
       assert_no_difference 'Article.count' do
-        patch :update, id: articles(:one).id, article: @new_article_hash
+        patch :update, params: { id: articles(:one).id, article: @new_article_hash }
       end
       assert_response :redirect
       assert_equal "article updated", flash[:notice]
@@ -100,7 +100,7 @@ class ArticlesControllerTest < ActionController::TestCase
 
     test "patch update action with invalid input" do
       assert_no_difference 'Article.count' do
-        patch :update, id: articles(:one).id, article: {title:"", body:""}
+        patch :update, params: { id: articles(:one).id, article: {title:"", body:""} }
       end
       assert_template 'articles/edit'
       assert_equal "what are you doing? you need a title.", flash[:error]
@@ -108,7 +108,7 @@ class ArticlesControllerTest < ActionController::TestCase
 
     test "post create action" do
       assert_difference "Article.count" do
-        post :create, article: @new_article_hash
+        post :create, params: { article: @new_article_hash }
       end
       assert_response :redirect
       assert_equal "article added", flash[:notice]
@@ -119,7 +119,7 @@ class ArticlesControllerTest < ActionController::TestCase
       assert_response :success
     end
     def test_get_edit_responds_with_success
-      get :edit, id: articles(:one).id
+      get :edit, params: { id: articles(:one).id }
       assert_response :success
     end
   end

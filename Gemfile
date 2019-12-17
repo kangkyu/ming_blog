@@ -3,7 +3,7 @@ ruby '2.4.5'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.11.1'
+gem 'rails',  '>= 5.0.0', '< 5.1'
 
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0' # Use SCSS for stylesheets
@@ -39,8 +39,9 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 
-gem "minitest-rails"
+gem 'minitest-rails', '~> 3.0'
 group :test do
+  gem 'rails-controller-testing'
   gem 'minitest-rails-capybara'
   gem 'minitest-reporters'
 end
