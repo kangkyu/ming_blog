@@ -2,42 +2,11 @@ source 'https://rubygems.org'
 ruby '2.4.5'
 
 
-gem "minitest-rails"
-group :test do
-  gem 'minitest-rails-capybara'
-  gem 'minitest-reporters'
-end
-
-# group :test do
-#   gem 'minitest', '~> 5.5.1'
-#   gem 'capybara', '~> 2.4.4'
-#   gem 'turn', '~> 0.9.7'
-# end
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails',  '>= 5.0.0', '< 5.1'
 
 gem 'bootstrap-sass', '~> 3.4.1'
-
-group :development, :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.3.0'
-end
-
-group :production do
-  gem 'pg', '~> 0.21' # upgrade to 1.0 after rails 5.1.5
-  gem 'rails_12factor'
-end
-
-group :development do
-  gem 'guard' # NOTE: this is necessary in newer versions
-  gem 'guard-minitest'
-end
-# https://github.com/guard/guard-minitest
-
-
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.11.1'
-# Use SCSS for stylesheets
-gem 'sassc-rails', '>= 2.1.0'
+gem 'sassc-rails', '>= 2.1.0' # Use SCSS for stylesheets
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -68,3 +37,32 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+gem 'minitest-rails', '~> 3.0'
+group :test do
+  gem 'rails-controller-testing'
+  gem 'minitest-rails-capybara'
+  gem 'minitest-reporters'
+end
+
+# group :test do
+#   gem 'minitest', '~> 5.5.1'
+#   gem 'capybara', '~> 2.4.4'
+#   gem 'turn', '~> 0.9.7'
+# end
+
+group :development do
+  gem 'guard' # NOTE: this is necessary in newer versions
+  gem 'guard-minitest'
+end
+# https://github.com/guard/guard-minitest
+group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '~> 1.3.0'
+end
+
+group :production do
+  gem 'pg', '~> 0.21' # upgrade to 1.0 after rails 5.1.5
+  gem 'rails_12factor'
+end
