@@ -29,7 +29,7 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
-class ActionDispatch::SystemTestCase
+class Capybara::Rails::TestCase
   def log_in(user)
     visit login_path
     fill_in 'Name', with: user.name
