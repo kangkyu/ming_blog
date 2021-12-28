@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
-ruby '2.6.5'
+ruby '2.7.3'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails',  '5.1.7'
+gem 'rails',  '5.2.6'
 
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0' # Use SCSS for stylesheets
@@ -38,6 +38,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'minitest-rails', '~> 3.0'
 group :test do
