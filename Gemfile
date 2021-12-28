@@ -3,7 +3,7 @@ ruby '2.7.3'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails',  '6.0.4.4'
+gem 'rails',  '6.1.4.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 
@@ -44,7 +44,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem "minitest-rails", "~> 6.0.0"
+gem "minitest-rails", "~> 6.1.0"
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
