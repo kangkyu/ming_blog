@@ -1,0 +1,11 @@
+<div class="row">
+<section>
+  <div class="panel panel-default col-sm-6" id="comments">
+    <%= render article.comments %>
+  </div>
+
+  <% if logged_in? %>
+    <%= render "comments/new", article: article %>
+  <% end %>
+</section>
+</div>
