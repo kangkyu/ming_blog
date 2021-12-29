@@ -9,11 +9,11 @@
 
 <% end %>
 
-<h4>Show <%= link_to pluralize(@article.comments.count, 'comment'), "#", id: "comments-link" %></h4><br>
+<h4>Show <%= pluralize(@article.comments.count, 'comment') %></h4><br>
 
 <div class="row">
-<section id="comments-section">
-  <div id="comment" class="panel panel-default col-sm-6">
+<section>
+  <div class="panel panel-default col-sm-6">
     <%= render @article.comments %>
   </div>
 
