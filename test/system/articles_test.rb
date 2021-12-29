@@ -1,6 +1,25 @@
-require "test_helper"
+require "application_system_test_case"
 
-class ShowArticlesTest < Capybara::Rails::TestCase
+class ArticlesTest < ApplicationSystemTestCase
+
+  def setup
+  end
+
+  test "can create a new article" do
+
+    user = users(:one)
+    log_in(user)
+
+    visit articles_path
+    click_link "add new article"
+    assert_equal new_article_path, current_path
+
+    assert_difference "Article.count" do
+      fill_in 'article_title', with: "title"
+      fill_in 'article_body', with: "body"
+      click_button "Create Article"
+    end
+  end
 
   test "shows blog header" do
 
