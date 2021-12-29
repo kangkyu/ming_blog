@@ -3,9 +3,12 @@ ruby '2.7.3'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails',  '6.1.4.4'
+gem 'rails', '~> 7.0.0'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 5.0'
+
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem "sprockets-rails"
 
 gem 'bootstrap-sass', '~> 3.4.1'
 # Use SCSS for stylesheets
@@ -42,12 +45,13 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', require: false
 
-gem "minitest-rails", "~> 6.1.0"
+# gem "minitest-rails", "~> 7.0.0"
+gem "minitest-rails", git: "https://github.com/blowmage/minitest-rails.git"
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
@@ -69,7 +73,9 @@ end
 # https://github.com/guard/guard-minitest
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4.0'
+  gem 'sqlite3', '~> 1.4'
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :production do
