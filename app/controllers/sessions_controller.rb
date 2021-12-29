@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Login successful"
     else
       flash.now.alert = "Please try again!"
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

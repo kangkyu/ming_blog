@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_url, notice: "Thank you for signup!"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
