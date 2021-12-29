@@ -18,7 +18,9 @@ class ArticlesTest < ApplicationSystemTestCase
       fill_in 'article_title', with: "title"
       fill_in 'article_body', with: "body"
       click_button "Create Article"
+      sleep 0.1
     end
+    assert_text "article added"
   end
 
   test "shows blog header" do
@@ -48,5 +50,22 @@ class ArticlesTest < ApplicationSystemTestCase
       assert_text(article.title)
       assert_text(article.body)
     end
+  end
+
+  test "deletes an article" do
+
+    user = users(:one)
+    log_in(user)
+
+    article = articles(:two)
+    visit article_path(article.id)
+
+    assert_difference "Article.count", -1 do
+      accept_confirm do
+        click_on "delete"
+      end
+      sleep 0.1
+    end
+    assert_text "article deleted"
   end
 end

@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "article added"
     else
       flash.now[:error] = "what are you doing? you need a title."
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -35,18 +35,15 @@ class ArticlesController < ApplicationController
       flash[:notice] = "article updated"
     else
       flash[:error] = "what are you doing? you need a title."
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @article = Article.find(params[:id])
-    if @article.destroy
-      flash[:notice] = "article deleted"
-      redirect_to articles_url
-    else
-      render :show
-    end
+    @article.destroy
+    flash[:notice] = "article deleted"
+    redirect_to articles_url
   end
 
   private

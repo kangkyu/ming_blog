@@ -36,6 +36,7 @@ class ActionDispatch::SystemTestCase
     fill_in 'Password', with: "password"
     # default password set as "password" at users.yml
     click_on "Submit"
+    assert_text "Login successful"
   end
 end
 
